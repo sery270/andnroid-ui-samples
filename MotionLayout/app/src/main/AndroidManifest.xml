@@ -11,13 +11,13 @@
         android:theme="@style/Theme.MotionLayout">
         <activity android:name=".ImageFilterView">
 
+        </activity>
+        <activity android:name=".dragAnimation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".dragAnimation">
         </activity>
         <activity android:name=".MainActivity"></activity>
     </application>
