@@ -2,6 +2,6 @@
 <resources>
     <declare-styleable name="FoldableView">
         <attr name="folded" format="boolean"/>
-        <attr name="backgroundColor" format="color"/>
+        <attr name="color" format="color"/>
     </declare-styleable>
 </resources>

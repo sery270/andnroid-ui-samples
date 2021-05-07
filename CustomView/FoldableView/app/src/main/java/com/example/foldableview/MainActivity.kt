@@ -9,10 +9,10 @@ import org.w3c.dom.Text
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main)
 
-        val v = FoldableView(this)
-        setContentView(v)
+//        val v = FoldableView(this)
+//        setContentView(v)
 
     }
 }
