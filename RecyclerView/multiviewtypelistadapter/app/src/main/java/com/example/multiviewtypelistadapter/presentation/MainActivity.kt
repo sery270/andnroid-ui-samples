@@ -1,11 +1,7 @@
-package com.example.multiviewtypelistadapter
+package com.example.multiviewtypelistadapter.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.databinding.DataBindingUtil
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.multiviewtypelistadapter.R
 import com.example.multiviewtypelistadapter.base.BindingActivity
 import com.example.multiviewtypelistadapter.databinding.ActivityMainBinding
 

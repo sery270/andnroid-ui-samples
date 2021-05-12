@@ -5,7 +5,7 @@
 
         <variable
             name="moim"
-            type="com.example.multiviewtypelistadapter.SearchItem.MoimItem"/>
+            type="com.example.multiviewtypelistadapter.domain.entity.SearchItem"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"

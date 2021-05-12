@@ -1,9 +1,11 @@
-package com.example.multiviewtypelistadapter
+package com.example.multiviewtypelistadapter.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.multiviewtypelistadapter.domain.entity.SearchItem
+import com.example.multiviewtypelistadapter.domain.repository.SearchRepository
 import kotlinx.coroutines.launch
 
 class SearchViewModel constructor(
