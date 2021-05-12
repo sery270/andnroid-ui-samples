@@ -18,6 +18,7 @@ class SearchFragment : BindingFragment<FragmentSearchBinding>(R.layout.fragment_
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        super.onCreateView(inflater, container, savedInstanceState)
         return binding.root
     }
 

@@ -4,7 +4,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -15,70 +14,56 @@ import com.example.multiviewtypelistadapter.domain.entity.SearchItem
 
 
 class SearchResultAdapter(private val type: Int) :
-    ListAdapter<SearchItem, RecyclerView.ViewHolder>(DIFF_CALLBACK()) {
-
-
-    abstract class BaseViewHolder<T>(private val binding: ViewDataBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-        abstract fun bind(item: T)
-    }
+    ListAdapter<SearchItem, RecyclerView.ViewHolder>(DiffCallback) {
 
     class BookHolder(private val binding: ItemBookResultBinding) :
-        BaseViewHolder<SearchItem.BookItem>(binding) {
-        override fun bind(item: SearchItem.BookItem) {
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: SearchItem.BookItem) {
             binding.book = item
         }
-
     }
 
     class MoimHolder(private val binding: ItemMoimResultBinding) :
-        BaseViewHolder<SearchItem.MoimItem>(binding) {
-        override fun bind(item: SearchItem.MoimItem) {
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: SearchItem.MoimItem) {
             binding.moim = item
         }
-
-
     }
 
-
-    companion object {
-        @JvmStatic
-        fun DIFF_CALLBACK(): DiffUtil.ItemCallback<SearchItem> =
-            object : DiffUtil.ItemCallback<SearchItem>() {
-                override fun areItemsTheSame(oldItem: SearchItem, newItem: SearchItem): Boolean {
-                    return when (oldItem) {
-                        is SearchItem.BookItem -> {
-                            oldItem.isbn == (newItem as SearchItem.BookItem).isbn
-                        }
-                        is SearchItem.MoimItem -> {
-                            oldItem.moimId == (newItem as SearchItem.MoimItem).moimId
-                        }
-                    }
+    object DiffCallback : DiffUtil.ItemCallback<SearchItem>() {
+        override fun areItemsTheSame(oldItem: SearchItem, newItem: SearchItem): Boolean {
+            return when (oldItem) {
+                is SearchItem.BookItem -> {
+                    oldItem.isbn == (newItem as SearchItem.BookItem).isbn
                 }
-
-                override fun areContentsTheSame(
-                    oldItem: SearchItem,
-                    newItem: SearchItem
-                ): Boolean {
-                    return when (oldItem) {
-                        is SearchItem.BookItem -> {
-                            oldItem == (newItem as SearchItem.BookItem)
-                        }
-                        is SearchItem.MoimItem -> {
-                            oldItem == (newItem as SearchItem.MoimItem)
-                        }
-                    }
+                is SearchItem.MoimItem -> {
+                    oldItem.moimId == (newItem as SearchItem.MoimItem).moimId
                 }
             }
+        }
+
+        override fun areContentsTheSame(
+            oldItem: SearchItem,
+            newItem: SearchItem
+        ): Boolean {
+            return when (oldItem) {
+                is SearchItem.BookItem -> {
+                    oldItem == (newItem as SearchItem.BookItem)
+                }
+                is SearchItem.MoimItem -> {
+                    oldItem == (newItem as SearchItem.MoimItem)
+                }
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        Log.d("onCreateViewHolder", "$viewType")
         val inflater = LayoutInflater.from(parent.context)
         val moimBinding: ItemMoimResultBinding =
             DataBindingUtil.inflate(inflater, R.layout.item_moim_result, parent, false)
         val bookBinding: ItemBookResultBinding =
             DataBindingUtil.inflate(inflater, R.layout.item_book_result, parent, false)
-        Log.d("onCreateViewHolder", "$viewType")
         return when (viewType) {
             SearchItem.BookItem_TYPE -> {
                 BookHolder(bookBinding)
@@ -94,38 +79,26 @@ class SearchResultAdapter(private val type: Int) :
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         Log.d("onBindViewHolder", "$type")
-//        val item = list[position]
         when (type) {
             SearchItem.BookItem_TYPE -> {
                 (holder as BookHolder).bind(getItem(position) as SearchItem.BookItem)
-//                (holder as BookHolder).bind(item as SearchItem.BookItem)
             }
             SearchItem.MoimItem_TYPE -> {
                 (holder as MoimHolder).bind(getItem(position) as SearchItem.MoimItem)
-//                (holder as MoimHolder).bind(item as SearchItem.MoimItem)
             }
             else -> {
-//                (holder as BookHolder).bind(item as SearchItem.BookItem)
-            } // 알 수 없는 뷰 타입은 디폴트로 BookHolder 지정
+                (holder as BookHolder).bind(getItem(position) as SearchItem.BookItem)
+            } // 알 수 없는 뷰 타입(비정상 상황)은 디폴트로 BookHolder 지정
 
         }
     }
 
-    override fun getItemViewType(position: Int): Int {
-        Log.d("getItemViewType", "$position")
+    override fun getItemViewType(position: Int): Int { // 사실상 의미 없을지도
+        Log.d("getItemViewType", "$type")
         return when (type) {
-            SearchItem.BookItem_TYPE -> {
-                (getItem(position) as SearchItem.BookItem).type
-            }
-            SearchItem.MoimItem_TYPE -> {
-                (getItem(position) as SearchItem.MoimItem).type
-            }
-            else -> {
-                (getItem(position) as SearchItem.BookItem).type
-            } // 알 수 없는 뷰 타입은 디폴트로 BookHolder 지정
-
+            SearchItem.BookItem_TYPE -> 0
+            SearchItem.MoimItem_TYPE -> 1
+            else -> 0 // 알 수 없는 뷰 타입(비정상 상황)은 디폴트로 BookHolder 지정
         }
-
     }
-
 }

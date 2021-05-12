@@ -11,8 +11,8 @@ data class WrapperResponseSearchMoim(
 data class ResponseSearchMoim(
     @SerializedName("roomIdx")
     val roomIdx: Int,
-    @SerializedName("imageUrl")
-    val imageUrl: String,
+    @SerializedName("thumbnail")
+    val thumbnail: String,
     @SerializedName("title")
     val title: String,
     @SerializedName("author")
@@ -26,7 +26,7 @@ data class ResponseSearchMoim(
     fun toMoimItem(): SearchItem.MoimItem {
         return SearchItem.MoimItem(
             type = 1, isbn = "isbn",
-            title, author, imageUrl, moimId = roomIdx, sentence = "sentence", moimHost = "moimHost"
+            title, author, thumbnail, moimId = roomIdx, sentence = "sentence", moimHost = "moimHost"
         )
 
     }

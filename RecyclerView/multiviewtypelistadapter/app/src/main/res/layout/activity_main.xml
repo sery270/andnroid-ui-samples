@@ -15,30 +15,16 @@
         android:layout_height="match_parent"
         tools:context=".presentation.MainActivity">
 
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/rv_search_after"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            android:background="@color/purple_700"-->
-<!--            tools:listitem="@layout/item_book_result" />-->
-        <TextView
-            android:id="@+id/rv_search_after"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@{main.author}"
-            android:textColor="@color/white"
-            android:textSize="30dp"
-            android:background="@color/purple_700"
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fg_result"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="parent"
+            android:name="com.example.multiviewtypelistadapter.presentation.SearchFragment"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

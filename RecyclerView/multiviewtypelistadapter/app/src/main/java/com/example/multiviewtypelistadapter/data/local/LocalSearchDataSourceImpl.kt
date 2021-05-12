@@ -14,14 +14,14 @@ class LocalSearchDataSourceImpl constructor(
 ) : SearchDataSource {
     override suspend fun fetchBookList(): BaseResponse<WrapperResponseSearchBook> {
         return withContext(Dispatchers.IO) {
-            objectFromJson(context, "popular_book_list.json")
+            objectFromJson(context, "book_list.json")
         }
 
     }
 
     override suspend fun fetchMoimList(): BaseResponse<WrapperResponseSearchMoim> {
         return withContext(Dispatchers.IO) {
-            objectFromJson(context, "popular_book_list.json")
+            objectFromJson(context, "moim_list.json")
         }
     }
 

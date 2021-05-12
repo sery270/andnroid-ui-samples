@@ -1,0 +1,33 @@
+{
+  "status": 200,
+  "success": true,
+  "message": "책 검색 조회 성공입니다",
+  "data": {
+    "SearchBook": [
+      {
+        "thumbnail": "https://image.aladin.co.kr/product/10651/17/cover500/e893643426_2.jpg",
+        "authors": "카카오",
+        "title": "운다고 달라지는 일은 아무것도 없겠지만(리커버)",
+        "isbn": "7"
+      },
+      {
+        "thumbnail": "https://image.aladin.co.kr/product/10651/17/cover500/e893643426_2.jpg",
+        "authors": "a",
+        "title": "book",
+        "isbn": "6"
+      },
+      {
+        "thumbnail": "https://image.aladin.co.kr/product/10651/17/cover500/e893643426_2.jpg",
+        "authors": "d",
+        "title": "maru",
+        "isbn": "5"
+      },
+      {
+        "thumbnail": "https://image.aladin.co.kr/product/10651/17/cover500/e893643426_2.jpg",
+        "authors": "v",
+        "title": "곰돌이",
+        "isbn": "1"
+      }
+    ]
+  }
+}

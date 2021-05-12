@@ -1,0 +1,41 @@
+{
+  "status": 200,
+  "success": true,
+  "message": "모임 검색 조회 성공입니다",
+  "data": {
+    "RoomList": [
+      {
+        "thumbnail": "https://image.aladin.co.kr/product/10651/17/cover500/e893643426_2.jpg",
+        "author": "카카오",
+        "title": "운다고 달라지는 일은 아무것도 없겠지만(리커버)",
+        "roomIdx": 7,
+        "info": "infoinfoinfo",
+        "nickName": "nickNamenickName"
+      },
+      {
+        "thumbnail": "https://image.aladin.co.kr/product/10651/17/cover500/e893643426_2.jpg",
+        "author": "카카오",
+        "title": "운다고 달라지는 일은 아무것도 없겠지만(리커버)",
+        "roomIdx": 11,
+        "info": "infoinfoinfo",
+        "nickName": "nickNamenickName"
+      },
+      {
+        "thumbnail": "https://image.aladin.co.kr/product/10651/17/cover500/e893643426_2.jpg",
+        "author": "카카오",
+        "title": "운다고 달라지는 일은 아무것도 없겠지만(리커버)",
+        "roomIdx": 72,
+        "info": "infoinfoinfo",
+        "nickName": "nickNamenickName"
+      },
+      {
+        "thumbnail": "https://image.aladin.co.kr/product/10651/17/cover500/e893643426_2.jpg",
+        "author": "카카오",
+        "title": "운다고 달라지는 일은 아무것도 없겠지만(리커버)",
+        "roomIdx": 711,
+        "info": "infoinfoinfo",
+        "nickName": "nickNamenickName"
+      }
+    ]
+  }
+}
