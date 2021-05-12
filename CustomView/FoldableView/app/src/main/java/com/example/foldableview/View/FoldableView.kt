@@ -29,13 +29,8 @@ class FoldableView @JvmOverloads constructor(
         /** View 배경색 설정하는 방법 1 : 초기화할 때, 딱 한번만 설정하고자 할 때 **/
 //        setBackgroundColor(Color.BLUE)
 
-
-//        Log.d("init", "attrs : ${attrs.attributeCount}")
-
-
-
         if (attrs != null) {
-
+            // attrs property 초기화
 
             getStyleableAttrs(attrs)
 
@@ -43,7 +38,7 @@ class FoldableView @JvmOverloads constructor(
 
                 if (attrs.getAttributeName(i).equals("color")) {
                     val tmp = attrs.getAttributeValue(i)
-                    Log.d("attrsattrs", "attrs : ${tmp}")
+//                    Log.d("attrsattrs", "attrs : ${tmp}")
                     if (tmp.isNullOrEmpty()) {
                         // 코드에서 사용할 색상 코드로 변환
                         when (tmp.length) {
@@ -72,9 +67,11 @@ class FoldableView @JvmOverloads constructor(
 
         val pnt = Paint()
         /** String을 16 진수로 바꾸고, Int로 바꿔줌 **/
+        /** private var mColor = "FFFF00FF"로 설정됨 **/
 //        pnt.color = mColor.toLong(16).toInt()
-        Log.d("onDraw", "onDraw : ${R.styleable.FoldableView_color}")
-        pnt.color = color
+
+        /** attrs로 넣어준, xml에 넣어준, color로 설정됨 **/
+//        pnt.color = color
         /** View 배경색 설정하는 방법 2 : 초기화 이후에, 여러 번 설정 및 변경해야할 때 **/
 //        canvas.drawColor(Color.GRAY)
         canvas.drawCircle(100F, 100F, 80F, pnt)

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="moim"
+            type="com.example.multiviewtypelistadapter.SearchItem.MoimItem"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:elevation="20dp">
+
+        <ImageView
+            android:id="@+id/img_moim"
+            android:layout_width="80dp"
+            android:layout_height="140dp"
+            android:background="@color/purple_700"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/img_moim"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_moim"
+            app:layout_constraintTop_toTopOf="@id/img_moim">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="16dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="16dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="16dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="16dp" />
+
+            <TextView
+                android:id="@+id/tv_moim_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{moim.author}"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@id/gl_left"
+                app:layout_constraintTop_toBottomOf="@id/gl_top" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
