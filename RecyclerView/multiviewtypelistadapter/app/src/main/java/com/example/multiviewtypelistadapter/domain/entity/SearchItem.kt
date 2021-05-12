@@ -3,7 +3,7 @@ package com.example.multiviewtypelistadapter.domain.entity
 sealed class SearchItem {
     data class BookItem(
         val type: Int,
-        val isbn: Int,
+        val isbn: String,
         val title: String,
         val author: String,
         val imageUrl: String
@@ -11,7 +11,7 @@ sealed class SearchItem {
 
     data class MoimItem(
         val type: Int,
-        val isbn: Int,
+        val isbn: String,
         val title: String,
         val author: String,
         val imageUrl: String,

@@ -1,6 +1,6 @@
 package com.example.multiviewtypelistadapter.data.model
 
-import com.example.multiviewtypelistadapter.domain.entity.SearchBook
+import com.example.multiviewtypelistadapter.domain.entity.SearchItem
 import com.google.gson.annotations.SerializedName
 
 data class WrapperResponseSearchBook(
@@ -18,8 +18,9 @@ data class ResponseSearchBook(
     @SerializedName("thumbnail")
     val thumbnail: String
 ) {
-    fun toBook(): SearchBook {
-        return SearchBook(
+    fun toBookItem(): SearchItem.BookItem {
+        return SearchItem.BookItem(
+            type = 0,
             author = authors,
             title = title,
             isbn = isbn,
