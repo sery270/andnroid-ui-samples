@@ -14,7 +14,7 @@ import com.example.multiviewtypelistadapter.databinding.ItemMoimResultBinding
 import com.example.multiviewtypelistadapter.domain.entity.SearchItem
 
 
-class SearchResultAdapter(private val type: Int, private val list: List<SearchItem>) :
+class SearchResultAdapter(private val type: Int) :
     ListAdapter<SearchItem, RecyclerView.ViewHolder>(DIFF_CALLBACK()) {
 
 
@@ -94,18 +94,18 @@ class SearchResultAdapter(private val type: Int, private val list: List<SearchIt
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         Log.d("onBindViewHolder", "$type")
-        val item = list[position]
+//        val item = list[position]
         when (type) {
             SearchItem.BookItem_TYPE -> {
-//                (holder as BookHolder).bind(getItem(position) as SearchItem.BookItem)
-                (holder as BookHolder).bind(item as SearchItem.BookItem)
+                (holder as BookHolder).bind(getItem(position) as SearchItem.BookItem)
+//                (holder as BookHolder).bind(item as SearchItem.BookItem)
             }
             SearchItem.MoimItem_TYPE -> {
-//                (holder as MoimHolder).bind(getItem(position) as SearchItem.MoimItem)
-                (holder as MoimHolder).bind(item as SearchItem.MoimItem)
+                (holder as MoimHolder).bind(getItem(position) as SearchItem.MoimItem)
+//                (holder as MoimHolder).bind(item as SearchItem.MoimItem)
             }
             else -> {
-                (holder as BookHolder).bind(item as SearchItem.BookItem)
+//                (holder as BookHolder).bind(item as SearchItem.BookItem)
             } // 알 수 없는 뷰 타입은 디폴트로 BookHolder 지정
 
         }
